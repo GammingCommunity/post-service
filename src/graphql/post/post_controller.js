@@ -11,7 +11,7 @@ class PostController {
 
     // mutation
 
-    async addPost(info) {
+    async createPost(info) {
         console.log(info);
         var result = await Post.create(info);
         if (result == null) {

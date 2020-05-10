@@ -20,7 +20,7 @@ module.exports = typeDef = gql`
         fetchPost(userID:String):[Post]
     }
     type Mutation{
-        addPost(postInfo:PostInput):CRUDResult
+        createPost(postInfo:PostInput):CRUDResult
         addComment(postID:String,commentInfo:CommentInput):CRUDResult
         reaction(to:reactToEnum,type:react_type,userID:String!,postID:String,commentID:String):CRUDResult
     }
