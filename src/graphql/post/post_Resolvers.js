@@ -3,8 +3,8 @@ const {onError,onSuccess } = require('../../utils/error_handle');
 var postController = new PostController();
 module.exports = postResolvers = {
     Query: {
-        fetchPost: async (_, { userID }) => {
-            return await postController.fetchPost(userID)
+        fetchPost: async (_, { users }) => {
+            return await postController.fetchPost(users)
         }
     },
     Mutation: {

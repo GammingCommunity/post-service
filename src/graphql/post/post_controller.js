@@ -3,8 +3,8 @@ class PostController {
 
     // query
 
-    async fetchPost(userID) {
-        var result = await Post.find({ "user_id": userID });
+    async fetchPost(users) {
+        var result = await Post.find({ "user_id": users });
         return JSON.parse(JSON.stringify(result))
 
     }

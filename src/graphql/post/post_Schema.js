@@ -17,7 +17,7 @@ module.exports = typeDef = gql`
     }
     
     type Query{
-        fetchPost(userID:[String]):[Post]
+        fetchPost(users:[String]):[Post]
     }
     type Mutation{
         createPost(postInfo:PostInput):CRUDResult
