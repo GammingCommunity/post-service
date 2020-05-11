@@ -5,6 +5,9 @@
   "repository": "https://github.com/GammingCommnunity/post-service.git",
   "author": "Mattstacey <dhpro1998@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon server.js" 
+  },
   "dependencies": {
     "apollo-cache-inmemory": "^1.6.5",
     "apollo-client": "^2.6.8",
