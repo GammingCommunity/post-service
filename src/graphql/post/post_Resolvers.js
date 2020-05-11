@@ -5,6 +5,9 @@ module.exports = postResolvers = {
     Query: {
         fetchPost: async (_, { users }) => {
             return await postController.fetchPost(users)
+        },
+        fetchComment: async (_, { postID }) => {
+            return await postController.fetchComment(postID);
         }
     },
     Mutation: {

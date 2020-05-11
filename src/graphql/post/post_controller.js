@@ -7,23 +7,40 @@ class PostController {
 
     async fetchPost(users) {
         try {
-            var result = await Post.find({ "user_id": users }).lean({virtuals:true})
-
+            var result = await Post.find({ "user_id": users })
+            var newResult = JSON.parse(JSON.stringify(result))
            var mapped =
-                _.map(result, (val) => {
+               _.map(newResult, (val) => {
                     var countCmt = _.get(val, "comments").length;
                     var countReact = _.get(val, "reactions").length;
                     return _.assign({}, val, { "countReaction": countReact, "countComment": countCmt });
                 })
 
-            console.log(mapped);
-
-            return JSON.parse(JSON.stringify(mapped))
+            return mapped
         } catch (error) {
             console.log(error);
 
         }
 
+    }
+    async fetchComment(postID) {
+        var result = await Post.findById(postID).select('comments reactions');
+        var newResult = JSON.parse(JSON.stringify(result))
+        var comments = _.get(newResult, "comments");
+        
+     /*  var mapped =
+            _.map(newResult, (val) => {
+                
+                var countCmt = _.get(val, "comments").length;
+                var comments = _.get(val, "comments");
+
+                console.log(countCmt, countReact);
+                return _.assign({}, val, { "countReaction": 0, "countComment": countCmt });
+            })
+        */
+        console.log(newResult);
+        
+        return newResult;
     }
 
     // mutation

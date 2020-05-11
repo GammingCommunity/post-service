@@ -1,17 +1,18 @@
 const { gql } = require('apollo-server');
 module.exports= typeDefs = gql`
-    type reactionType{
+    type Reaction{
         user_id:String
         reaction_type:String
     }
-    type commentType{
+    type Comment{
         comment_id:String
         user_id: String
         content: String
         media: String
         reactions: [
-            reactionType
+            Reaction
         ],
+        count_reaction:Int
         created_time: Date
     }
 

@@ -1,26 +1,26 @@
 const { gql } = require('apollo-server');
 module.exports = typeDef = gql`
     type Post{
-        _id:ID!
+        post_id:ID!
         title:String
         content:String
         media:String,
         tag:[String],
         reactions:[
-            reactionType
+            Reaction
         ],
         permission:permissionEnum,
         created_time:Date
         comments:[
-            commentType
+            Comment
         ]
         countComment:Int
         countReaction:Int
-
     }
     
     type Query{
         fetchPost(users:[String]):[Post]
+        fetchComment(postID:ID):Post
     }
     type Mutation{
         createPost(postInfo:PostInput):CRUDResult
