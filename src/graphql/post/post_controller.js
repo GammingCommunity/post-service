@@ -1,11 +1,28 @@
 const Post = require('../../models/post');
+const _ = require('lodash');
+
 class PostController {
 
     // query
 
     async fetchPost(users) {
-        var result = await Post.find({ "user_id": users });
-        return JSON.parse(JSON.stringify(result))
+        try {
+            var result = await Post.find({ "user_id": users }).lean({virtuals:true})
+
+           var mapped =
+                _.map(result, (val) => {
+                    var countCmt = _.get(val, "comments").length;
+                    var countReact = _.get(val, "reactions").length;
+                    return _.assign({}, val, { "countReaction": countReact, "countComment": countCmt });
+                })
+
+            console.log(mapped);
+
+            return JSON.parse(JSON.stringify(mapped))
+        } catch (error) {
+            console.log(error);
+
+        }
 
     }
 
@@ -35,7 +52,7 @@ class PostController {
         }
         switch (to) {
             case "post":
-                
+
                 var result = await Post.findOneAndUpdate({ "_id": postID }, { $push: { "reactions": react } });
 
                 if (result == null) {
@@ -50,7 +67,7 @@ class PostController {
                     $push: { "comments.$.reactions": react }
                 })
                 console.log(result);
-                
+
                 if (result == null) {
                     return false;
                 }

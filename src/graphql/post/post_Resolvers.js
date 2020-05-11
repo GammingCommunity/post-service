@@ -10,7 +10,7 @@ module.exports = postResolvers = {
     Mutation: {
         createPost: async (_, { postInfo }) => {
 
-            var result = await postController.addPost(postInfo);
+            var result = await postController.createPost(postInfo);
             return result ? onSuccess("Post add success!") : onError("fail", "Post add failed!");
             
         },

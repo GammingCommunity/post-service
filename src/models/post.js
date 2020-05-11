@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+const mongooseLeanVirtuals = require('mongoose-lean-virtuals');
 const { paginate } = require('mongoose-paginate-v2');
 
-const opts = { toJSON: { virtuals: true } };
+//const opts = { toJSON: { virtuals: true } };
 
 const post = mongoose.Schema({
     user_id: String,
@@ -30,7 +31,7 @@ const post = mongoose.Schema({
         default: "open"
     }
 
-}, opts)
+})
 const commentSchema = mongoose.Schema({
     user_id: String,
     content: String,
@@ -48,7 +49,7 @@ const commentSchema = mongoose.Schema({
         default: Date.now,
         type: Date
     },
-}, opts)
+})
 commentSchema.add({
     comments: [
         {
@@ -61,11 +62,15 @@ post.add({
         commentSchema
     ]
 })
+
 commentSchema.virtual('comment_id').get(function () {
     return this._id;
 });
+commentSchema.plugin(mongooseLeanVirtuals);
+
 post.virtual('post_id').get(function () {
     return this._id;
-})
+});
+post.plugin(mongooseLeanVirtuals);
 
 module.exports = mongoose.model('post', post);
