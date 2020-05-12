@@ -24,6 +24,7 @@ module.exports = typeDef = gql`
     }
     type Mutation{
         createPost(postInfo:PostInput):CRUDResult
+        removePost(postID:String):CRUDResult
         addComment(postID:String,commentInfo:CommentInput):CRUDResult
         reaction(to:reactToEnum,type:react_type,userID:String!,postID:String,commentID:String):CRUDResult
     }

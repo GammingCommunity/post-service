@@ -53,6 +53,10 @@ class PostController {
         }
         return true;
     }
+    async removePost(postID) {
+        var result = await Post.findOneAndRemove({ "_id": postID });        
+        return result != null ? true : false; 
+    }
     async addComment(postID, commentInfo) {
         var result = await Post.findOneAndUpdate({ "_id": postID }, { $push: { "comments": commentInfo } });
         if (result == null) {

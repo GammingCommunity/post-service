@@ -17,6 +17,11 @@ module.exports = postResolvers = {
             return result ? onSuccess("Post add success!") : onError("fail", "Post add failed!");
             
         },
+        removePost: async (_, { postID }) => {
+            var result = await postController.removePost(postID);
+            return result ? onSuccess("Remove post success!") : onError("fail", "Remove post failed!");
+
+        },
         addComment: async (_, { postID,commentInfo }) => {
             var result = await postController.addComment(postID, commentInfo);
             return result ? onSuccess("Add comment success!") : onError("fail", "Add comment failed!");
