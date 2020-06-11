@@ -13,7 +13,7 @@
     "apollo-client": "^2.6.9",
     "apollo-server": "^2.14.3",
     "apollo-server-cache-memcached": "^0.6.5",
-    "apollo-server-express": "^2.14.3",
+    "apollo-server-express": "^2.14.2",
     "cloudinary": "^1.22.0",
     "dataloader": "^2.0.0",
     "dotenv": "^8.2.0",
