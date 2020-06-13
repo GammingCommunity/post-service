@@ -26,6 +26,6 @@ module.exports = typeDef = gql`
         createPost(postInfo:PostInput):CRUDResult
         removePost(postID:String):CRUDResult
         addComment(postID:String,commentInfo:CommentInput):CRUDResult
-        reaction(to:ReactToEnum,type:react_type,reactID:String!,postID:String,commentID:String):CRUDResult
+        reaction(to:ReactToEnum,type:ReactTypeEnum,reactID:String!,postID:String,commentID:String):CRUDResult
     }
 `

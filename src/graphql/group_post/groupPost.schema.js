@@ -4,12 +4,12 @@ module.exports = typeDef = gql`
         group_id:ID!
         posts:[UserPostType]
     }
-    type Query{
+    extend type Query{
         fetchGroupPost(groupID:String!):[GroupPost]
 
     }
-    type Mutation{
-        createGroupPost(groupID:String!,info:GroupPostInput):ResultCRUD
+    extend type Mutation{
+        createGroupPost(groupID:String!,info:GroupPostInput):CRUDResult
     }
 
 `
