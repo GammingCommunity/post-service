@@ -9,7 +9,7 @@ module.exports = typeDefs = gql`
         reactions:[
             Reaction
         ],
-        permission:permissionEnum,
+        permission:PermissionEnum,
         created_time:Date
         comments:[
             Comment

@@ -1,6 +1,6 @@
 const groupPostController = require('./groupPost.controller');
 const { onError, onSuccess } = require('../../utils/error_handle');
-var groupPostCtrl = groupPostController();
+var groupPostCtrl = new groupPostController();
 
 module.exports = groupPostResolvers = {
     Query: {

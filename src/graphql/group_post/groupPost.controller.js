@@ -1,3 +1,4 @@
-module.exports = {
-    
+class GroupPostController{
+
 }
+module.exports = GroupPostController;
