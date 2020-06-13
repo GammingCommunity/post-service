@@ -9,7 +9,7 @@ module.exports = typeDef = gql`
         reactions:[
             Reaction
         ],
-        permission:permissionEnum,
+        permission:PermissionEnum,
         created_time:Date
         comments:[
             Comment
@@ -26,6 +26,6 @@ module.exports = typeDef = gql`
         createPost(postInfo:PostInput):CRUDResult
         removePost(postID:String):CRUDResult
         addComment(postID:String,commentInfo:CommentInput):CRUDResult
-        reaction(to:reactToEnum,type:react_type,userID:String!,postID:String,commentID:String):CRUDResult
+        reaction(to:ReactToEnum,type:react_type,reactID:String!,postID:String,commentID:String):CRUDResult
     }
 `

@@ -4,6 +4,6 @@ const postType = require('./post_type');
 const postEnum = require('./post_enum');
 module.exports = function () {
     return [
-        postSchema, postInput, postType, postEnum
+        postSchema, postInput, postType
     ]
 }
