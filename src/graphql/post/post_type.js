@@ -2,7 +2,7 @@ const { gql } = require('apollo-server');
 module.exports= typeDefs = gql`
     type Reaction{
         user_id:String
-        reaction_type:String
+        reaction_type:ReactTypeEnum
     }
     type Comment{
         comment_id:String

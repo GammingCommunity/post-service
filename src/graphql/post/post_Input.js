@@ -6,13 +6,12 @@ module.exports= typeDefs = gql`
         content:String!,
         media:String,
         tag:[String]
-        permission:permissionEnum!
+        permission:PermissionEnum!
         
     },
     input CommentInput{
         user_id:String!
         content:String!
         media:String
-       
     }
 `
