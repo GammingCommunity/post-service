@@ -10,7 +10,7 @@ const server = new ApolloServer({
     cors: true,
     schema: Schema,
     playground: true,
-    introspection: true,
+    introspection: false,
     persistedQueries: {
         cache: new MemcachedCache(
             ['memcached-server-1', 'memcached-server-2', 'memcached-server-3'],
