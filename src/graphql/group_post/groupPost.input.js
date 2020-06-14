@@ -1,11 +1,26 @@
 const { gql } = require('apollo-server');
 module.exports = typeDefs = gql`
     input GroupPostInput{
-        user_id:String!
         title:String!,
         content:String!,
         media:String,
+        isPinned:Boolean
         tag:[String]
         permission:PermissionEnum!
+    }
+    input PollInput{
+        pollQuestion:String!
+        tags:[String]
+        isPinned:Boolean
+        permission:PermissionEnum!
+        pollChoices:[PollOptionInput]!
+        pollLength:Int!
+    }
+    input PollOptionInput{
+        pollTitle:String!
+        pollVoted:Int
+    }
+    input PostOptionInput{
+        disabledComment:Boolean
     }
 `

@@ -1,5 +1,7 @@
 const PostController = require('./post_controller');
-const {onError,onSuccess } = require('../../utils/error_handle');
+const { onError, onSuccess } = require('../../utils/error_handle');
+const getUserID = require('../../utils/getUserID');
+const _ = require('lodash');
 var postController = new PostController();
 module.exports = postResolvers = {
     Query: {
@@ -11,9 +13,10 @@ module.exports = postResolvers = {
         }
     },
     Mutation: {
-        createPost: async (_, { postInfo }) => {
-
-            var result = await postController.createPost(postInfo);
+        createPost: async (root, { postInfo },ctx) => {
+            var accountID = getUserID(ctx);
+            var info = _.assign({}, postInfo, { user_id: accountID });
+            var result = await postController.createPost(info);
             return result ? onSuccess("Post add success!") : onError("fail", "Post add failed!");
             
         },
@@ -24,9 +27,7 @@ module.exports = postResolvers = {
         },
         addComment: async (_, { postID,commentInfo }) => {
             var result = await postController.addComment(postID, commentInfo);
-            return result ? onSuccess("Add comment success!") : onError("fail", "Add comment failed!");
-
-            
+            return result ? onSuccess("Add comment success!") : onError("fail", "Add comment failed!");   
         },
         reaction: async (_, {to,type,userID,postID,commentID }) => {
             

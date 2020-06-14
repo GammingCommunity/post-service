@@ -1,7 +1,7 @@
 const { gql } = require('apollo-server');
 module.exports= typeDefs = gql`
     input PostInput {
-        user_id:String!
+        user_id:String
         title:String!,
         content:String!,
         media:String,
