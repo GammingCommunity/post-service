@@ -23,8 +23,8 @@ const postSchema = mongoose.Schema({
     postType: String,
     
     media: {
-        default: "",
-        type: String
+        default: [],
+        type: [String]
     },
     tag: [
         String

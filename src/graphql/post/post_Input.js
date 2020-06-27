@@ -4,7 +4,7 @@ module.exports= typeDefs = gql`
         user_id:String
         title:String!,
         content:String!,
-        media:String,
+        media:[String],
         tag:[String]
         permission:PermissionEnum!
         

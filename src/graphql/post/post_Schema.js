@@ -4,7 +4,7 @@ module.exports = typeDef = gql`
         post_id:ID!
         title:String
         content:String
-        media:String,
+        media:[String!],
         tag:[String],
         reactions:[
             Reaction

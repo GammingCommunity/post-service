@@ -9,8 +9,8 @@ const post = mongoose.Schema({
     title: String,
     content: String,
     media: {
-        default: "",
-        type: String
+        default: [],
+        type: [String]
     },
     tag: [
         String
