@@ -48,10 +48,7 @@ class PostController {
     async createPost(info) {
         console.log(info);
         var result = await Post.create(info);
-        if (result == null) {
-            return false;
-        }
-        return true;
+        return result._id;
     }
     async removePost(postID) {
         var result = await Post.findOneAndRemove({ "_id": postID });        

@@ -17,7 +17,7 @@ module.exports = postResolvers = {
             var accountID = getUserID(ctx);
             var info = _.assign({}, postInfo, { user_id: accountID });
             var result = await postController.createPost(info);
-            return result ? onSuccess("Post add success!") : onError("fail", "Post add failed!");
+            return result != ("" || undefined)? onSuccess("Post add success!", result) : onError("fail", "Post add failed!");
             
         },
         removePost: async (_, { postID }) => {
