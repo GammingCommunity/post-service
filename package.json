@@ -20,7 +20,7 @@
     "global": "^4.4.0",
     "graphql": "^15.1.0",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "mongoose": "^5.9.18",
     "mongoose-aggregate-paginate-v2": "^1.0.4",
     "mongoose-lean-virtuals": "^0.6.7",
